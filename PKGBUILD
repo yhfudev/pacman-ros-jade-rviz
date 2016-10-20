@@ -36,7 +36,6 @@ ros_makedepends=(ros-jade-roslib
   ros-jade-rosconsole)
 makedepends=('cmake' 'ros-build-tools'
   ${ros_makedepends[@]}
-  qt4
   ogre
   assimp
   eigen3
@@ -68,7 +67,6 @@ ros_depends=(ros-jade-roslib
   ros-jade-nav-msgs
   ros-jade-rosconsole)
 depends=(${ros_depends[@]}
-  qt4
   ogre
   assimp
   eigen3
@@ -107,6 +105,7 @@ build() {
 
   # Build project
   cmake ${srcdir}/${_dir} \
+        -DUseQt5=ON \
         -DCMAKE_BUILD_TYPE=Release \
         -DCATKIN_BUILD_BINARY_PACKAGE=ON \
         -DCMAKE_INSTALL_PREFIX=/opt/ros/jade \
